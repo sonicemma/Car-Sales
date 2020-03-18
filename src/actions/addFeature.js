@@ -1,4 +1,4 @@
-export const add = item => {
+export const addFeature = item => {
     return {
         type: 'ADD_ITEM',
         payload: item

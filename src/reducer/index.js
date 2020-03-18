@@ -16,29 +16,33 @@ export const initialState = {
 }
 
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => { 
     switch (action.type) {
-        case 'ADD_ITEM':
-            return {
-                ...state, 
-                additionalPrice: state.additionalPrice + action.payload.price,
-                car: {
-                    ...state.car,
-                    feature: [
-                        ...state.car.features,
-                        action.payload
-                    ]
-                }
-            };
-        case 'REMOVE_ITEM':
-            return {
-                ...state,
-                featuresCost: state.additionalPrice - action.payload.feature.price,
-                car: {
-                    ...state.car.features.filter((feature) => feature.id !== action.payload.feature.id)
-                }
-            }
-            default:
-                return state;
-    };
-};
+      case 'ADD_ITEM':
+        return {
+          ...state,
+          additionalPrice: state.additionalPrice + action.payload.price, 
+          car: {
+            ...state.car,
+            features: [
+              ...state.car.features, 
+              action.payload 
+            ]
+          }
+        }
+  
+      case 'REMOVE_ITEM':
+        return {
+          ...state, 
+          additionalPrice: state.additionalPrice - action.payload.price, 
+          car: {
+            ...state.car,
+            features: [
+              ...state.car.features.filter(item => item.id !== action.payload.id)
+            ]
+          }
+        }
+      default: 
+        return state
+    }
+  }
