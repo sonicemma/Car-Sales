@@ -1,6 +1,6 @@
 export const remove = item => {
     return {
-        type: 'REMOVE',
+        type: 'REMOVE_ITEM',
         payload: item
     };
 }

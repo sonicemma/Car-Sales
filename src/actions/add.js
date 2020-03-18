@@ -1,6 +1,6 @@
 export const add = item => {
     return {
-        type: 'ADD',
+        type: 'ADD_ITEM',
         payload: item
     };
 }
